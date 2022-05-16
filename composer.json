@@ -1,0 +1,21 @@
+{
+    "name": "k1rly/blog",
+    "description": "Blog on PHP and MySQL",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "K1rly\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Malevych Yurii",
+            "email": "yuramvm1@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.4"
+    }
+}
