@@ -3,16 +3,14 @@
 {% block body %}
     <div class="container">
         <img src="https://dummyimage.com/1200x400/000/fff" class="img-fluid" alt="...">
-        <h1 class="mt-3 mb-3">Blog post title</h1>
+        <h1 class="mt-3 mb-3">{{ post.title|escape }}]</h1>
         <div class="container mb-3">
             <div class="row">
-                <span class="text-muted">Malevych Yurii | May 16, 2022</span>
+                <span class="text-muted">Malevych Yurii | {{ post.publicshed_date|date("F d, Y") }}</span>
             </div>
         </div>
         <div>
-            Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів.
-            "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
-            3Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.
+            {{ post.content|raw }}
         </div>
     </div>
 {% endblock %}
