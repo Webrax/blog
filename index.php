@@ -35,11 +35,17 @@ $app = AppFactory::create();
 $app->addErrorMiddleware(true, true, true);
 
 // Add routes
-$app->get('/home', function (Request $request, Response $response, $args) use ($view) {
-    $body = $view->render('index.twig');
-    $response->getBody()->write($body);
-    return $response;
-});
+$app->get('/', function (Request $request, Response $response, $args) use ($view, $postMapper)
+    {
+        $posts = $postMapper->getList('DESC');
+
+        $body = $view->render('index.twig', [
+            'posts' => $posts
+        ]);
+        $response->getBody()->write($body);
+        return $response;
+    }
+);
 
 $app->get('/about', function (Request $request, Response $response, $args) use ($view) {
     $body = $view->render('about.twig', [
